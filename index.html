@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Women Who Code - Basic Angular</title>
+</head>
+
+<script type="text/javascript" src="assets/vendor/angular/angular.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<body ng-app="stopWatchIndex">
+
+<div ng-controller="mainController as mainCtrl">
+  <h1>Contents</h1>
+  <a ng-href="{{contentHeader.url}}"
+     ng-repeat="contentHeader in mainCtrl.tableOfContents">
+    <h3>{{contentHeader.label}}</h3>
+  </a>
+</div>
+
+</body>
+</html>
