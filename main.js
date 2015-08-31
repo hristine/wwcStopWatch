@@ -16,6 +16,9 @@ angular.module('stopWatchIndex', [])
       {
         label: 'Data Binding',
         url: 'dataBinding/dataBindingComplete/dataBinding.html'
+      },{
+        label: 'Stop Watch',
+        url: 'stopWatch/stopWatchComplete/stopWatchComplete.html'
       }
     ];
 
