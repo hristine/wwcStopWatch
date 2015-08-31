@@ -11,9 +11,16 @@
 
 <div ng-controller="mainController as mainCtrl">
   <h1>Contents</h1>
-  <a ng-href="{{contentHeader.url}}"
-     ng-repeat="contentHeader in mainCtrl.tableOfContents">
-    <h3>{{contentHeader.label}}</h3>
+  <a ng-href="{{link.url}}"
+     ng-repeat="link in mainCtrl.tableOfContents">
+    <h3>{{link.label}}</h3>
+  </a>
+
+
+  <h1>Contents</h1>
+  <a ng-repeat="link in mainCtrl.completeContents"
+    ng-href="{{link.url}}">
+    <h3>{{link.label}}</h3>
   </a>
 </div>
 

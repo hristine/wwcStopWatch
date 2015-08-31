@@ -18,4 +18,13 @@ angular.module('stopWatchIndex', [])
         url: 'ngrepeat'
       }
     ];
+
+
+    this.completeContents = [
+      {
+        label: 'Data Binding',
+        url: 'dataBinding/dataBindingComplete/dataBinding.html'
+      }
+    ];
+
   });
