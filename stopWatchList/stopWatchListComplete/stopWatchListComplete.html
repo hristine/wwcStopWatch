@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stop Watch List</title>
+</head>
+<body ng-app="stopWatchListComplete" ng-controller="stopWatchListController as swListCtrl">
+
+
+<div ng-repeat="stopWatch in swListCtrl.stopWatchList">
+  <div class="stop-watch">
+    <h4 class="timer">{{stopWatch.getElapsedMs()}}</h4>
+    <button class="start" ng-click="stopWatch.start()">Start</button>
+    <button class="stop" ng-click="stopWatch.stop()">Stop</button>
+    <button class="reset" ng-click="stopWatch.reset()">Reset</button>
+  </div>
+</div>
+
+
+<button ng-click="swListCtrl.createNewStopWatch(swListCtrl.stopWatchList)">Add New StopWatch</button>
+
+<script type="text/javascript" src="../../assets/vendor/angular/angular.js"></script>
+<script type="text/javascript" src="../../stopWatchList/stopWatchListComplete/stopWatchListComplete.js"></script>
+</body>
+</html>
