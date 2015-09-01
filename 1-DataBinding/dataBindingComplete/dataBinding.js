@@ -5,6 +5,6 @@ angular.module('dataBinding', [])
 
 .controller('dataBindingController', function(){
 
-    this.helloWorld = 'Hello World';
+    this.textExample = 'Hello World/Class!';
 
   });

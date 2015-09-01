@@ -3,12 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <title>Data Binding</title>
+  <link rel="stylesheet" href="../../assets/vendor/materialize/dist/css/materialize.min.css"/>
 </head>
-<body ng-app="dataBinding" ng-controller="dataBindingController as db">
+<body ng-app="dataBinding" ng-controller="dataBindingController as dbCtrl" class="container">
 
 <h1>Data Binding</h1>
 
-{{db.helloWorld}}
+<div class="card-panel hoverable blue-grey darken-2 white-text">
+  {{dbCtrl.textExample}}
+</div>
+
+<p>When you want to wire up your code to your view, you have a few things you need to make sure to do.</p>
+
+<ul>
+  <li class="row">
+    <h4>Reference Angular Module</h4>
+    <p>The first step is to make a javascript file where you'll initiate your application, it should look something like this.</p>
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+      angular.module('dataBinding', []);
+    </div>
+    <p>
+      This is pretty simple, and to keep it from getting complicated, I'll just point out that when making a new module
+      you need to make sure to have two arguments, the first argument is a string which will be the module's name (in this
+      case this is the actual module I am using for this demo, and it's name) and the second parameter is an array of modules
+      you want to have available in this module. Not something we will be covering right now, so we'll be keeping it an empty array.
+    </p>
+
+    <p>
+      In the HTML document, you need to now do two things - reference this js file and specify the angular app on a top level
+      element of the document. Something like this
+    </p>
+
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+      &lt;script type="text/javascript" src="dataBinding.js"&gt; &lt;/script&gt;
+    </div>
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+      &lt;body ng-app="dataBinding"&gt;
+      &lt;/body&gt;
+    </div>
+    <p>
+      The reason why this is done on the body element is because everything within the element is under the scope
+      of the application. If we put this on a div for example, I could only interact with this module inside of that div
+    </p>
+
+  </li>
+  <li>
+    <h4>Reference Angular Controller</h4>
+    <p>
+      Once you have the app setup, you need to use what's called a controller to actually interact with the view.
+    </p>
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+      var app = angular.module('dataBinding', []);
+      <br/>
+      app.controller('dataBindingController', function () {
+      <br/>
+      });
+    </div>
+
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+      &lt;body ng-app="dataBinding" ng-controller="dataBindingController as dbCtrl"&gt;
+    </div>
+
+    <p>
+      This extends what we had in the previous step. Instead of just having a module, we are setting
+      the module to a variable, and calling the controller method. This method takes two arguments, the first
+      being the name of the controller as a string, the second a function that represents the controller scope.
+    </p>
+  </li>
+  <li>
+    <h4>Use Curly Brackets</h4>
+    <p>
+      Finally we want to get some code from the controller in the javascript file to show up in the view.
+      The simplest example will be just binding a string to the view.
+    </p>
+
+    <div class="card-panel hoverable blue-grey darken-2 white-text">
+
+      <p>var app = angular.module('dataBinding', []);</p>
+
+      <p>
+        app.controller('dataBindingController', function () {
+        <br/>
+        var vm = this;
+        <br/>
+        vm.textExample = 'Hello World/Class!'.
+        <br/>
+        });
+      </p>
+    </div>
+    <p>
+      First, you need to reference 'this'. Here, to make it more understandable (and as to not confuse it with other
+      'this' scopes), we're setting it to a variable called vm, which is shorthand for view model. Basically this
+      is going to be what is referenced in the view itself. You'll have a better idea what I mean in the next code snippet.
+      I am creating a property on the vm where I put a simple string, and now I want this string to show up on the webpage itself.
+    </p>
+
+    <div class="card-panel hoverable blue-grey darken-2 white-text" ng-non-bindable>
+      &lt;div&gt;
+      <br/>
+      {{dbCtrl.textExample}}
+      <br/>
+      &lt;/div&gt;
+    </div>
+    <p>And that's it! Try it for yourself.</p>
+  </li>
+</ul>
 
 
 <script type="text/javascript" src="../../assets/vendor/angular/angular.js"></script>
