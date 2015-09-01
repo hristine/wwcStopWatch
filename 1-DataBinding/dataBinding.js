@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('dataBinding', [])
+var app = angular.module('dataBinding', []);
 
-.controller('dataBindingController', function(){
+app.controller('dataBindingController', function () {
 
-  });
+});

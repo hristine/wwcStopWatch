@@ -1,0 +1,21 @@
+{
+  "name": "wwcStopWatch",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rangle/wwcStopWatch",
+  "authors": [
+    "Abdella <abdellaalioncan@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "materialize": "latest"
+  }
+}
