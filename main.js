@@ -7,7 +7,10 @@ angular.module('stopWatchIndex', [])
     this.tableOfContents = [
       {
         label: 'Data Binding',
-        url: 'dataBinding/dataBinding.html'
+        url: '1-DataBinding/dataBinding.html'
+      },{
+        label: 'Stop Watch',
+        url: '2-stopWatch/stopWatch.html'
       }
     ];
 
@@ -15,10 +18,10 @@ angular.module('stopWatchIndex', [])
     this.completeContents = [
       {
         label: 'Data Binding',
-        url: 'dataBinding/dataBindingComplete/dataBinding.html'
+        url: '1-DataBinding/dataBindingComplete/dataBinding.html'
       },{
         label: 'Stop Watch',
-        url: 'stopWatch/stopWatchComplete/stopWatchComplete.html'
+        url: '2-stopWatch/stopWatchComplete/stopWatchComplete.html'
       }
     ];
 
