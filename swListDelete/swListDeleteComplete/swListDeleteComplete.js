@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('stopWatchListLabelsComplete', [])
+angular.module('swListDeleteComplete', [])
 
-.controller('stopWatchListLabelsController', function($interval){
+.controller('swListDeleteCompleteController', function($interval){
 
     var vm = this;
     var newTime = new Date();
 
-    this.stopWatchList = [
+    vm.stopWatchList = [
       new StopWatch(newTime),
       new StopWatch(newTime),
       new StopWatch(newTime)
@@ -18,7 +18,9 @@ angular.module('stopWatchListLabelsComplete', [])
       vm.newLabel = null;
     };
 
-
+    vm.removeStopWatchByIndex = function(index){
+      vm.stopWatchList.splice(index, 1);
+    };
 
     function StopWatch(time, label) {
 
