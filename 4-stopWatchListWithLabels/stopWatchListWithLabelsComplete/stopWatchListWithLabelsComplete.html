@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Stop Watch List</title>
 </head>
-<body ng-app="swListDeleteComplete" ng-controller="swListDeleteCompleteController as swListCtrl">
+<body ng-app="stopWatchListLabelsComplete" ng-controller="stopWatchListLabelsController as swListCtrl">
 
 <input type="text" ng-model="swListCtrl.newLabel"/>
 <button ng-click="swListCtrl.createNewStopWatch(swListCtrl.stopWatchList)">Add New StopWatch</button>
@@ -16,13 +16,12 @@
     <button class="start" ng-click="stopWatch.start()">Start</button>
     <button class="stop" ng-click="stopWatch.stop()">Stop</button>
     <button class="reset" ng-click="stopWatch.reset()">Reset</button>
-    <button class="remove" ng-click="swListCtrl.removeStopWatchByIndex($index)">Remove</button>
   </div>
 </div>
 
 
 
 <script type="text/javascript" src="../../assets/vendor/angular/angular.js"></script>
-<script type="text/javascript" src="../../swListDelete/swListDeleteComplete/swListDeleteComplete.js"></script>
+<script type="text/javascript" src="stopWatchListWithLabelsComplete.js"></script>
 </body>
 </html>
