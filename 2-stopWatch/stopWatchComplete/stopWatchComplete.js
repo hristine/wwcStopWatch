@@ -15,11 +15,9 @@ angular.module('stopWatchComplete', [])
     //of functions. At this point I'll go over some important concepts
     var vm = this;
 
-    var newTime = new Date();
-
     //Here you can see that I am using the 'new' keyword to assign a value onto my
     //stopWatch view property. new is used with constructors to specify that you want a new instance
-    vm.stopWatch = new StopWatch(newTime);
+    vm.stopWatch = new StopWatch();
 
     //#############################################################
     //Based off this codepen http://codepen.io/jhasselkus/pen/Efaxw
@@ -27,11 +25,7 @@ angular.module('stopWatchComplete', [])
     //#############################################################
     //This StopWatch constructor is handling all the logic that goes into creating a stopwatch
     //There are a few useful concepts inside of here I want to go over
-    function StopWatch(time) {
-      //First, you can see that we are passing in a value as an argument called time
-      //time in this case is a new Date() object, you can see I declare it on the top level as newTime
-      //it's used throughout to power the stop watch logic
-
+    function StopWatch() {
 
       //here we have a few privately declared variables. What that means is that these variables
       //are not available outside of StopWatch constructor function, they are used strictly as the cogs
@@ -89,8 +83,7 @@ angular.module('stopWatchComplete', [])
       //This is a private function that handles the messy logic of formatting elapsed time in a human readable
       //format, ie - 00:00:25 vs something like 3423ms
       function formatTime(unformattedTime) {
-        var h, m, s, ms = 0;
-        var newTime = '';
+        var h, m, s, ms;
 
         h = Math.floor(unformattedTime / (60 * 60 * 1000));
         unformattedTime = unformattedTime % (60 * 60 * 1000);
@@ -99,8 +92,7 @@ angular.module('stopWatchComplete', [])
         s = Math.floor(unformattedTime / 1000);
         ms = unformattedTime % 1000;
 
-        newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
-        return newTime;
+        return pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
       }
 
       function pad(num, size) {
