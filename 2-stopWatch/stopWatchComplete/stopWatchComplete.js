@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stopWatchComplete', [])
+angular.module('stopWatch', [])
 
 
   //You can see here that there is something happening with a variable called $interval

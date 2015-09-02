@@ -6,19 +6,99 @@
   <link rel="stylesheet" href="../../assets/vendor/materialize/dist/css/materialize.min.css"/>
   <link rel="stylesheet" href="stop-watch.css"/>
 </head>
-<body ng-app="stopWatchComplete" ng-controller="stopWatchController as sw" class="container">
+<body ng-app="stopWatch" ng-controller="stopWatchController as swCtrl" class="container">
 
 <h1>Making a Stop Watch</h1>
 
 <div class="row">
-  <p>Here, we'll make a simple stopwatch that will have three buttons - start, stop and reset.</p>
+  <p>
+    Here, we'll make a simple stopwatch that will have three buttons - start, stop and reset.
+    There should already be a pre-made stop watch constructor available in the js file - which we will go over,
+    as it is does touch on some relatively complex concepts that might need explaining (like what a constructor is)
+    but the goal here is to figure out where angular comes in more than anything else. One of Angular's strengths
+    is binding data from javascript to the view, and here we'll go over the very common use case of binding click events
+    to buttons.
+  </p>
+
+  <p>
+    For a quick refresher, we currently have this on the body tag:
+  </p>
+
+  <div class="card-panel hoverable blue-grey darken-2 white-text">
+    ng-app="stopWatch" ng-controller="stopWatchController as swCtrl"
+  </div>
+</div>
+
+
+<div class="row">
+  <p>
+    And these scripts are being referenced:
+  </p>
+
+  <div class="card-panel hoverable blue-grey darken-2 white-text">
+    <p>&lt;script type="text/javascript" src="../../assets/vendor/angular/angular.js"&gt;&lt;/script&gt;</p>
+    <p>&lt;script type="text/javascript" src="stopWatchComplete.js"&gt;&lt;/script&gt;</p>
+  </div>
+</div>
+
+
+<div class="row">
+  <p>
+    That means that we have an angular module called 'stopWatch' defined in a script that is available to this page,
+    and a controller called 'stopWatchController' that is available in that module. When we want to access data from
+    that controller, we would normally have to type out stopWatchController.someData every time, and that can get
+    tedious, so we are using the 'controller as' format, and creating a shorthand we are calling swCtrl, so instead
+    we just need to type swCtrl.someData. You'll also notice that I am referencing the angular.js file here - in any
+    new angular app, this needs to be available.
+  </p>
+</div>
+
+<div class="row">
+  <p>
+    Now lets get to actually making our little stop watch. You can do this any way you like, and the complete version
+    of this file will include an already made version with some basic styles that you can take a look at after if you
+    are having some trouble or if you want something (reasonably) good looking to work with. But for now, just make
+    something in html that has a container, a place to show the elapsed time, and three buttons. Once we have that, lets
+    wire up some functions. First, lets take a look at the controller file, specifically at these important pieces:
+  </p>
+
+  <div class="card-panel hoverable blue-grey darken-2 white-text">
+    <p>vm.stopWatch = new StopWatch();</p>
+    <p>self.start = function...</p>
+    <p>self.stop = function...</p>
+    <p>self.reset = function...</p>
+    <p>self.getElapsedMs = function...</p>
+  </div>
+  <p>These are the important properties that we will be interacting with in our view here. What we want to do is:</p>
+  <ul>
+    <li>1. Bind the start/stop/reset functions to their appropriate buttons</li>
+    <li>2. Show the elapsed time somewhere</li>
+  </ul>
+
+  <p>
+    For the first step, let's take a look at an important angular specific attribute (in case you don't remember,
+    when referring to attributes in html, we're talking about those little bits of text we put between on a tags header,
+    for example something like class="myClass" - class is the attribute).
+  </p>
+</div>
+
+<div>
+  <h4>ngClick/ng-click</h4>
+  <p>
+    ngClick is an important attribute used in basically every angular application. It's technically a directive,
+    which is something I will probably go over quickly at some point in this lesson, but I won't touch on too much
+    as it can be a bit advanced. Anyway, ngClick, when given a function, fires that function when the element housing it
+    is clicked on. Simple enough, but there a few important things to remember. Firstly, html is not case sensitive - so
+    having capital letters isn't going to be useful, so all directives that are automatically converted to dash spaced
+    from camelCase - ie, ngClick turns into ng-click when used on an element.
+  </p>
 </div>
 
 <div class="card-panel stop-watch">
-  <h4 class="timer">{{sw.stopWatch.getElapsedMs()}}</h4>
-  <button class="start btn waves-effect waves-light green darken-2" ng-click="sw.stopWatch.start()">Start</button>
-  <button class="stop btn waves-effect waves-light red darken-2" ng-click="sw.stopWatch.stop()">Stop</button>
-  <button class="reset btn waves-effect waves-light indigo darken-2" ng-click="sw.stopWatch.reset()">Reset</button>
+  <h4 class="timer">{{swCtrl.stopWatch.getElapsedMs()}}</h4>
+  <button class="start btn waves-effect waves-light green darken-2" ng-click="swCtrl.stopWatch.start()">Start</button>
+  <button class="stop btn waves-effect waves-light red darken-2" ng-click="swCtrl.stopWatch.stop()">Stop</button>
+  <button class="reset btn waves-effect waves-light indigo darken-2" ng-click="swCtrl.stopWatch.reset()">Reset</button>
 </div>
 
 <script type="text/javascript" src="../../assets/vendor/angular/angular.js"></script>
