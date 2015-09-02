@@ -3,14 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Stop Watch: Completed</title>
+  <link rel="stylesheet" href="../../assets/vendor/materialize/dist/css/materialize.min.css"/>
+  <link rel="stylesheet" href="stop-watch.css"/>
 </head>
-<body ng-app="stopWatchComplete" ng-controller="stopWatchController as sw">
+<body ng-app="stopWatchComplete" ng-controller="stopWatchController as sw" class="container">
 
-<div class="stop-watch">
+<h1>Making a Stop Watch</h1>
+
+<div class="row">
+  <p>Here, we'll make a simple stopwatch that will have three buttons - start, stop and reset.</p>
+</div>
+
+<div class="card-panel stop-watch">
   <h4 class="timer">{{sw.stopWatch.getElapsedMs()}}</h4>
-  <button class="start" ng-click="sw.stopWatch.start()">Start</button>
-  <button class="stop" ng-click="sw.stopWatch.stop()">Stop</button>
-  <button class="reset" ng-click="sw.stopWatch.reset()">Reset</button>
+  <button class="start btn waves-effect waves-light green darken-2" ng-click="sw.stopWatch.start()">Start</button>
+  <button class="stop btn waves-effect waves-light red darken-2" ng-click="sw.stopWatch.stop()">Stop</button>
+  <button class="reset btn waves-effect waves-light indigo darken-2" ng-click="sw.stopWatch.reset()">Reset</button>
 </div>
 
 <script type="text/javascript" src="../../assets/vendor/angular/angular.js"></script>
