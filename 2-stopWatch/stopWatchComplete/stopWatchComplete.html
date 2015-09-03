@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Stop Watch: Completed</title>
   <link rel="stylesheet" href="../../assets/vendor/materialize/dist/css/materialize.min.css"/>
-  <link rel="stylesheet" href="stop-watch.css"/>
 </head>
 <body ng-app="stopWatch" ng-controller="stopWatchController as swCtrl" class="container">
 
@@ -37,6 +36,7 @@
 
   <div class="card-panel hoverable blue-grey darken-2 white-text">
     <p>&lt;script type="text/javascript" src="../../assets/vendor/angular/angular.js"&gt;&lt;/script&gt;</p>
+
     <p>&lt;script type="text/javascript" src="stopWatchComplete.js"&gt;&lt;/script&gt;</p>
   </div>
 </div>
@@ -64,9 +64,13 @@
 
   <div class="card-panel hoverable blue-grey darken-2 white-text">
     <p>vm.stopWatch = new StopWatch();</p>
+
     <p>self.start = function...</p>
+
     <p>self.stop = function...</p>
+
     <p>self.reset = function...</p>
+
     <p>self.getElapsedMs = function...</p>
   </div>
   <p>These are the important properties that we will be interacting with in our view here. What we want to do is:</p>
@@ -84,6 +88,7 @@
 
 <div>
   <h4>ngClick/ng-click</h4>
+
   <p>
     ngClick is an important attribute used in basically every angular application. It's technically a directive,
     which is something I will probably go over quickly at some point in this lesson, but I won't touch on too much
@@ -92,9 +97,18 @@
     having capital letters isn't going to be useful, so all directives that are automatically converted to dash spaced
     from camelCase - ie, ngClick turns into ng-click when used on an element.
   </p>
+
+  <div class="card-panel hoverable blue-grey darken-2 white-text">
+    &lt;button ng-click="yourCtrl.itsFunction()" &gt; &lt;/button&gt;
+  </div>
+
+  <p>
+    This would be an example of how you would put a function on a button! Knowing this, and the previous lesson
+    on how to bind regular properties to the view, try and make a stop watch using the four functions listed above!
+  </p>
 </div>
 
-<div class="card-panel stop-watch">
+<div class="card-panel stop-watch" style="width: 450px;">
   <h4 class="timer">{{swCtrl.stopWatch.getElapsedMs()}}</h4>
   <button class="start btn waves-effect waves-light green darken-2" ng-click="swCtrl.stopWatch.start()">Start</button>
   <button class="stop btn waves-effect waves-light red darken-2" ng-click="swCtrl.stopWatch.stop()">Stop</button>
