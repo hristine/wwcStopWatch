@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Stop Watch List</title>
+  <link rel="stylesheet" href="../../assets/vendor/materialize/dist/css/materialize.min.css"/>
 </head>
-<body ng-app="stopWatchListComplete" ng-controller="stopWatchListController as swListCtrl">
+<body ng-app="stopWatchListComplete" ng-controller="stopWatchListController as swListCtrl" class="container">
 
 
-<div ng-repeat="stopWatch in swListCtrl.stopWatchList">
-  <div class="stop-watch">
-    <h4 class="timer">{{stopWatch.getElapsedMs()}}</h4>
-    <button class="start" ng-click="stopWatch.start()">Start</button>
-    <button class="stop" ng-click="stopWatch.stop()">Stop</button>
-    <button class="reset" ng-click="stopWatch.reset()">Reset</button>
-  </div>
+<div class="card-panel stop-watch"
+     style="width: 450px;"
+     ng-repeat="stopWatch in swListCtrl.stopWatchList">
+  <h4 class="timer">{{stopWatch.getElapsedMs()}}</h4>
+  <button class="start btn waves-effect waves-light green darken-2" ng-click="stopWatch.start()">Start</button>
+  <button class="stop btn waves-effect waves-light red darken-2" ng-click="stopWatch.stop()">Stop</button>
+  <button class="reset btn waves-effect waves-light indigo darken-2" ng-click="stopWatch.reset()">Reset</button>
 </div>
 
 
